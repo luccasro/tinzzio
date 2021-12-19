@@ -6,9 +6,10 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackHeaderProps } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName, Pressable, View, Text, StyleSheet } from 'react-native';
+import { Appbar, Menu } from 'react-native-paper';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -18,14 +19,34 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { Home } from '../screens';
+import 'react-native-gesture-handler';
+
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
-    <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootNavigator />
-    </NavigationContainer>
+    <PaperProvider>
+      <NavigationContainer
+        linking={LinkingConfiguration}
+        theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+      >
+        <Stack.Navigator
+          screenOptions={{
+            header: (props) => <CustomNavigationBar {...props} />,
+          }}>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
+
+          <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+          <Stack.Screen name="Oi" component={BottomTabNavigator} options={{ headerShown: false }} />
+          <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+          <Stack.Group screenOptions={{ presentation: 'modal' }}>
+            <Stack.Screen name="Modal" component={ModalScreen} />
+          </Stack.Group>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
 
@@ -33,19 +54,52 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
  */
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList | any>();
 
-function RootNavigator() {
+
+function CustomNavigationBar({ navigation, back }: NativeStackHeaderProps) {
+  const [visible, setVisible] = React.useState(false);
+
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-      <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
-    </Stack.Navigator>
+    <Appbar.Header>
+      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+      <Appbar.Content title="My awesome app" />
+      {!back ? (
+        <Menu
+          visible={visible}
+          onDismiss={() => setVisible(false)}
+          anchor={
+            <Appbar.Action icon="menu" color="white" onPress={() => setVisible(true)} />
+          }>
+          <Menu.Item onPress={() => { console.log('Option 1 was pressed') }} title="Option 1" />
+          <Menu.Item onPress={() => { console.log('Option 2 was pressed') }} title="Option 2" />
+          <Menu.Item onPress={() => { console.log('Option 3 was pressed') }} title="Option 3" disabled />
+        </Menu>
+      ) : null}
+    </Appbar.Header>
   );
 }
+
+
+
+function DetailsScreen() {
+  return (
+    <View style={style.container}>
+      <Text style={style.title}>Details Screen</Text>
+    </View>
+  );
+}
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    color: "white"
+  }
+});
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.

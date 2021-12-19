@@ -9,10 +9,13 @@ import * as Linking from 'expo-linking';
 
 import { RootStackParamList } from '../types';
 
-const linking: LinkingOptions<RootStackParamList> = {
+const linking: LinkingOptions<RootStackParamList | any> = {
   prefixes: [Linking.makeUrl('/')],
   config: {
     screens: {
+      Oi: 'oi',
+      Home: '',
+      Details: 'details',
       Root: {
         screens: {
           TabOne: {
