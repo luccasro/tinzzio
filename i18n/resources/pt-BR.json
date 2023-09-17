@@ -1,0 +1,30 @@
+{
+  "dashboard": {
+    "title": "dashboard",
+    "recommendations": "Recomendações",
+    "createQuiz": "Criar quiz"
+  },
+  "explore": {
+    "title": "Descubra"
+  },
+  "cardItem": {
+    "createdBy": "Criado por ${user}",
+    "createdAt": "Criado em ${date}",
+    "questions": "${number} questões.",
+    "playQuiz": "Realizar quiz",
+    "enable": "Ativar",
+    "disable": "Desativar",
+    "remove": "Remover"
+  },
+  "loadQuiz":{
+    "title": "PIN do Quiz",
+    "placeholder": "PIN do Quiz",
+    "loadRoomButton": "Carregar Quiz"
+  },
+  "navbarOptions":{
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "changeTheme": "Mudar tema",
+    "logout": "Logout"
+  }
+}

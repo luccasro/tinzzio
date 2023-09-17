@@ -1,0 +1,19 @@
+{
+    "writeKey": "a8359570228932141094-b4808b88b72fd41851ffbc834ea7c612a84fca0560715ae989f8b5617a13799f",
+    "readKey": "a8359570228932141094-3765ddbb0f8f386c10eb053b6f3efeb5ee1a8e0a115f144d354180520dd75b43",
+    "upload": {
+        "type": "json",
+        "files": {
+            "pattern": "i18n/resources/*.json",
+            "lang": "${autodetectLang}"
+        },
+        "features": [
+            "plural_postfix_cc"
+        ],
+        "deprecateMissing": true
+    },
+    "download": {
+        "files": "i18n/resources/${lang}.json",
+        "includeSourceLang": "true"
+    }
+}

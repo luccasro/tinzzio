@@ -1,0 +1,43 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "recommendations": "Recommendations",
+    "createQuiz": "Create quiz"
+  },
+  "explore": {
+    "title": "Explore"
+  },
+  "cardItem": {
+    "createdBy": "Created by ${user}",
+    "createdAt": "Created at ${date}",
+    "questions": "${number} questions.",
+    "playQuiz": "Play quiz",
+    "enable": "Enable",
+    "disable": "Disable",
+    "remove": "Remove"
+  },
+  "loadQuiz": {
+    "title": "Quiz PIN",
+    "placeholder": "Quiz PIN",
+    "loadRoomButton": "Load Quiz"
+  },
+  "navbarOptions":{
+    "profile": "Profile",
+    "settings": "Settings",
+    "changeTheme": "Change Theme",
+    "logout": "Logout"
+  },
+  "categories": {
+    "science": "science"
+  },
+  "room":{
+    "resultsTitle": "Results",
+    "backDashboard":"Back to Dashboard",
+    "copyPIN": "Copy Quiz PIN",
+    "nextButton": "Next",
+    "finishButton": "Finish Quiz",
+    "wrongAnswer": "Wrong =(",
+    "correctAnswer": "Correct =D",
+    "restartButton": "Restart Quiz"
+  }
+}

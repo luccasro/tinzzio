@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "teste",
-    "slug": "teste",
+    "name": "Tinzzio",
+    "slug": "tinzzio",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -25,10 +25,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.luccasdev.tinzzio",
+      "googleServicesFile": "./google-services.json",
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "b6520add-0e42-48b3-83b9-85133df909a9"
+      }
     }
   }
 }

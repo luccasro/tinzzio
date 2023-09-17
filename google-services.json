@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "784258373513",
+    "project_id": "teste-react-native-9396d",
+    "storage_bucket": "teste-react-native-9396d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784258373513:android:71ad1bfb065d55e5273358",
+        "android_client_info": {
+          "package_name": "com.luccasdev.tinzzio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784258373513-7kcto37vgeu7obo511skk02nt8aiaks6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.luccasdev.tinzzio",
+            "certificate_hash": "20f6f5ca433f1002f82b64d307c4b3d4939e7c29"
+          }
+        },
+        {
+          "client_id": "784258373513-mjsv3rnsbt4fhfbq48jjsntmea0sn4cs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_jNVthZfRx9Becv-20VYaK7RpShA9YI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784258373513-mjsv3rnsbt4fhfbq48jjsntmea0sn4cs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
