@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Box, Button, Center, Input, Text } from "native-base";
+import { Box, Button, Center, Input, Text, useColorModeValue } from "native-base";
 import React, { useState } from "react";
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import i18next from "i18next";
@@ -42,7 +42,7 @@ export const LoadRoom = () => {
                             backgroundColor: "gray.50",
                         }}>
                         <Text bold>{i18next.t("loadQuiz.title")}</Text>
-                        <Input minWidth="250px" placeholder={i18next.t("loadQuiz.placeholder")} mt={5} size="lg" value={roomId} onChangeText={setRoomId} />
+                        <Input minWidth="250px" color={useColorModeValue("black", "black")} placeholder={i18next.t("loadQuiz.placeholder")} mt={5} size="lg" value={roomId} onChangeText={setRoomId} />
                         <Button isDisabled={roomId === ''} onPress={loadRoom} mt={5}>{i18next.t("loadQuiz.loadRoomButton")}</Button>
                     </Box>
                 </Center>

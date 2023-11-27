@@ -61,7 +61,7 @@ export const MenuOptions = ({ navigation }: NativeStackHeaderProps) => {
                                 }
                                 borderRadius="full"
                                 _icon={{
-                                    color: theme.colors.coolGray[600],
+                                    color: useColorModeValue(theme.colors.coolGray[600], "white") ,
                                     size: "sm",
                                 }}
                                 _hover={{
@@ -151,7 +151,7 @@ export const MenuOptions = ({ navigation }: NativeStackHeaderProps) => {
                                                 </Badge>
                                             )
                                         )}
-                                        <Icon as={MaterialCommunityIcons} name="bell" color={theme.colors.coolGray[600]} size="sm" />
+                                        <Icon as={MaterialCommunityIcons} name="bell" color={useColorModeValue(theme.colors.coolGray[600], "white")} size="sm" />
                                     </>
                                     }
                                     borderRadius="full"

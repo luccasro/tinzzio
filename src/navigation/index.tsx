@@ -58,6 +58,8 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
     return null;
   }
 
+  const defaultBlackColor = '#3f3f46'
+
   return (
     <>
     <NativeBaseProvider theme={theme} colorModeManager={colorModeManager}>
@@ -70,7 +72,7 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
           tabBar={props =>  <TabBar {...props} /> }
           screenOptions={({ navigation, route }) => ({
             tabBarHideOnKeyboard: true,
-            headerStyle: { backgroundColor: useColorModeValue("white", "black"), borderBottomWidth: 0, shadow: "rgb(0 0 0 / 10%) 0px 2px 4px 0px" },
+            headerStyle: { backgroundColor: useColorModeValue("white", defaultBlackColor), borderBottomWidth: 0, shadow: "rgb(0 0 0 / 10%) 0px 2px 4px 0px" },
             headerTitleStyle: {
               color: useColorModeValue(theme.colors.coolGray[600], 'white'),
               fontWeight: "bold",
@@ -112,7 +114,7 @@ const currentRoute = descriptors[state.routes[state.index].key].route.name;
     <>
     {(currentRoute !== "Login" && currentRoute !== "CreateRoom" && currentRoute !== "Word") &&(
     <View pt={2} pb={1} style={{
-      flexDirection: 'row', backgroundColor: "white", justifyContent: "center", alignItems: "center",
+      flexDirection: 'row', backgroundColor: useColorModeValue("white", "#151515"), justifyContent: "center", alignItems: "center",
       position: 'absolute',
       left: 0,
       right: 0,
@@ -143,6 +145,8 @@ const currentRoute = descriptors[state.routes[state.index].key].route.name;
           });
         };
 
+        const defaultIconColor = isFocused ? "purple.600" : useColorModeValue(theme.colors.coolGray[800], "white");
+
         return (
           <>
             {(route.name === "Dashboard" || route.name === "UserRooms" || route.name === "Explore" || route.name === "Reports") && (
@@ -152,14 +156,14 @@ const currentRoute = descriptors[state.routes[state.index].key].route.name;
                 testID={options.tabBarTestID}
                 onPress={onPress}
                 onLongPress={onLongPress}
-                style={{ flex: 1, alignItems: "center", opacity: isFocused ? 1 : 0.7 }}
+                style={{ flex: 1, alignItems: "center", opacity: isFocused ? 1 : 0.7, backgroundColor: useColorModeValue("white", "#151515") }}
                 key={index}
               >
                 {route.name === "Dashboard" && (
                     <Icon
                       as={AntDesign}
                       name="home"
-                      color={isFocused ? "purple.600" : theme.colors.coolGray[800]}
+                      color={defaultIconColor}
                       size="28px"
                     />
                 )}
@@ -167,7 +171,7 @@ const currentRoute = descriptors[state.routes[state.index].key].route.name;
                     <Icon
                       as={AntDesign}
                       name="find"
-                      color={isFocused ? "purple.600" : theme.colors.coolGray[800]}
+                      color={defaultIconColor}
                       size="28px"
                     />
                 )}
@@ -175,7 +179,7 @@ const currentRoute = descriptors[state.routes[state.index].key].route.name;
                     <Icon
                       as={AntDesign}
                       name="barschart"
-                      color={isFocused ? "purple.600" : theme.colors.coolGray[800]}
+                      color={defaultIconColor}
                       size="28px"
                     />
                 )}
@@ -183,11 +187,11 @@ const currentRoute = descriptors[state.routes[state.index].key].route.name;
                     <Icon
                       as={AntDesign}
                       name="book"
-                      color={isFocused ? "purple.600" : theme.colors.coolGray[800]}
+                      color={defaultIconColor}
                       size="28px"
                     />
                 )}
-                <Text pt={1} bold fontSize={12} style={{ color: isFocused ? theme.colors.purple[600] : theme.colors.coolGray[800] }}>
+                <Text pt={1} bold fontSize={12} style={{ color: isFocused ? theme.colors.purple[600] : defaultIconColor }}>
                   {label === "Dashboard" ? "Home" : 
                   label === "UserRooms" ? "Library" :
                   label}
