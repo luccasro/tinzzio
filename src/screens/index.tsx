@@ -1,4 +1,3 @@
-// export {Navbar} from './Navbar'
 export { LoginPage } from './Login/LoginPage';
 export { Dashboard } from './Homepage/Dashboard';
 export { Home } from './Homepage/Home';

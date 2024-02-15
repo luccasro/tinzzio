@@ -1,4 +1,8 @@
 {
+  "login": {
+    "loginGoogle": "Login with Google",
+    "createAccount": "Create Account"
+  },
   "dashboard": {
     "title": "Dashboard",
     "recommendations": "Recommendations",
@@ -21,7 +25,7 @@
     "placeholder": "Quiz PIN",
     "loadRoomButton": "Load Quiz"
   },
-  "navbarOptions":{
+  "navbarOptions": {
     "profile": "Profile",
     "settings": "Settings",
     "changeTheme": "Change Theme",
@@ -30,14 +34,52 @@
   "categories": {
     "science": "science"
   },
-  "room":{
+  "createRoom": {
+    "quizName": "Quiz name:",
+    "settings": "Settings",
+    "privacy": "Privacy",
+    "public": "Public",
+    "private": "Private",
+    "linkOnly": "Link only",
+    "question": "Question",
+    "optionA": "Option A",
+    "optionB": "Option B",
+    "optionC": "Option C",
+    "optionD": "Option D",
+    "privacyTooltip": "Public | Private | Link only",
+    "removeQuestion": "Remove question",
+    "addQuestion": "Add question",
+    "finishCreateQuiz": "Finish and create quiz!",
+    "backDashboard": "Back to Dashboard",
+    "modalHeader": "Settings",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "room": {
+    "start": "Start Quiz!",
     "resultsTitle": "Results",
-    "backDashboard":"Back to Dashboard",
+    "backDashboard": "Back to Dashboard",
     "copyPIN": "Copy Quiz PIN",
+    "pinCopied": "Quiz PIN copied successfully!",
     "nextButton": "Next",
     "finishButton": "Finish Quiz",
-    "wrongAnswer": "Wrong =(",
-    "correctAnswer": "Correct =D",
-    "restartButton": "Restart Quiz"
+    "wrongAnswer": "Wrong!",
+    "correctAnswers": "Correct answers: {{correctCount}} of {{totalCount}}",
+    "percentage": "Percentage:",
+    "correctAnswer": "Correct!",
+    "restartButton": "Restart Quiz",
+    "invalidQuiz": "This quiz does not exist",
+    "disabledQuiz": "Quiz disabled!"
+  },
+  "settings": {
+    "currentUsername": "Current username:",
+    "viewProfile": "View profile",
+    "changeUsername": "Change username",
+    "isAvailable": "is available",
+    "notAvailable": "is not available"
+  },
+  "shared": {
+    "userWithoutQuiz": "The user does not have a quiz.",
+    "userDontExist": "The user does not exist."
   }
 }

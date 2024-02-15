@@ -1,14 +1,8 @@
-/**
- * Learn more about deep linking with React Navigation
- * https://reactnavigation.org/docs/deep-linking
- * https://reactnavigation.org/docs/configuring-links
- */
-
 import { LinkingOptions } from '@react-navigation/native';
 import * as Linking from 'expo-linking';
-import { RootStackParamList } from '../../types';
+import { RootStackParamList } from 'models';
 
-const linking: LinkingOptions<RootStackParamList | any> = {
+const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.makeUrl('/')],
   config: {
     screens: {
@@ -22,44 +16,27 @@ const linking: LinkingOptions<RootStackParamList | any> = {
           roomId: (roomId) => `room-${roomId}`,
         },
         stringify: {
-          roomId: (roomId) => roomId.replace(/^room-/, '')
+          roomId: (roomId) => roomId.replace(/^room-/, ''),
         },
       },
       Users: {
-        path: 'users/:userName',
+        path: 'users/:username',
         parse: {
-          userName: (userName) => `${userName}`,
-        }
+          userName: (username) => `${username}`,
+        },
       },
       Settings: 'settings',
       UserRooms: 'library',
-      Explore: "explore",
-      Reports: "reports",
-      Admin: "admin",
-      Word: "word",
+      Explore: 'explore',
+      Reports: 'reports',
+      Admin: 'admin',
+      Word: 'word',
       Modal: 'modal',
       NotFound: '*',
-      Root: {
-        screens: {
-          TabOne: {
-            screens: {
-              TabOneScreen: 'one',
-            },
-          },
-          TabTwo: {
-            screens: {
-              TabTwoScreen: 'two',
-            },
-          },
-        },
-      },
     },
   },
 };
 
-export const hiddenPages = [
-  'Details',
-  'Home'
-];
+export const hiddenPages = ['Details', 'Home'];
 
 export default linking;
