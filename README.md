@@ -4,16 +4,17 @@
 
 ---
 
-A weight management web app with detailed graphs and stats. Set and reach goals, track average weight, and monitor Body Mass Index (BMI).
+Tinzzio is a app for creating, playing, and managing quizzes on both web and mobile devices. Experience a user-friendly interface that simplifies quiz creation and management for a enjoyable experience.
 
-This project, created in 2021 and later refactored, explores CRUD functionalities with Firebase, featuring Google authentication, account creation, and password reset. Additionally, Material UI and Tailwind are combined to enhance user interface development.
+This project was created in 2022 and later refactored. It serves as an exploration into hybrid application development, offering compatibility for both web and mobile platforms through the utilization of React Native and Expo.
 
 ### Demo
 
 ---
 
 <a href="https://tinzzio.luccasdev.com">View Web</a><br />
-<a href="https://tinzzio.luccasdev.com">View Mobile(Android)</a>
+
+<!-- <a href="https://tinzzio.luccasdev.com">View Mobile(Android)</a> -->
 
 ## Technologies
 
@@ -42,8 +43,11 @@ $ yarn start
 # Choose the version
 $ At the Expo Go screen, press 'W' for the web version or 'A' for the Android version
 
-# Build
-$ yarn build
+# Export for web
+$ yarn expo export:web
+
+# Build for mobile (https://docs.expo.dev/build)
+$ eas build --platform android
 ```
 
 ## 📝 License
