@@ -12,44 +12,24 @@ import {
   useColorModeValue,
   useTheme,
 } from 'native-base';
-import React, { useEffect, useState } from 'react';
-import { db, getUserData, logout } from 'services';
+import React from 'react';
+import { db, logout } from 'services';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { UserData } from 'models';
-import { doc, onSnapshot, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 import { Trans } from 'react-i18next';
 import i18next from 'i18next';
+import { useAuth } from 'context/useAuth';
 
 export const MenuOptions = ({ navigation }: NativeStackHeaderProps) => {
   const { t } = useTranslation();
   const theme = useTheme();
   const { toggleColorMode } = useColorMode();
-  const [user, setUser] = useState<UserData | undefined>(undefined);
-
-  const auth = getAuth();
-
-  const loadUser = () => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        onSnapshot(doc(db, 'users', user.uid), (doc) => {
-          getUserData(user.uid).then((user) => setUser(user as UserData));
-        });
-      } else {
-        navigation.navigate('Login');
-      }
-    });
-  };
-
-  useEffect(() => {
-    setUser(undefined);
-    loadUser();
-  }, [auth]);
+  const { user } = useAuth();
 
   const LanguageMenu: React.FC = () => {
     const changeLanguage = async (lng: string) => {

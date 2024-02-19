@@ -1,48 +1,28 @@
-import { NativeStackHeaderProps } from '@react-navigation/native-stack';
-import { Box, Button, Text, ScrollView, ScaleFade, Spinner } from 'native-base';
-import React, { useEffect, useState } from 'react';
-import { useIsFocused } from '@react-navigation/native';
-import { RoomData, UserData } from 'models';
-import { db, getUserData } from 'services';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { Box, Text, ScrollView, ScaleFade, Spinner, Center } from 'native-base';
+import React from 'react';
 import { getMediaQuery } from '../../styles';
+import { useAuth } from 'context/useAuth';
+import { useTranslation } from 'react-i18next';
 
-export const ReportsHome = ({ navigation }: NativeStackHeaderProps) => {
-  const isFocused = useIsFocused();
-  const [user, setUser] = useState<UserData | undefined>(undefined);
-  const [rooms, setRooms] = useState<RoomData[]>([]);
-  const auth = getAuth();
+export const ReportsHome = () => {
+  const { t } = useTranslation();
+  const { user, isLoading } = useAuth();
   const isSmallMedium = getMediaQuery('isSmallMedium');
 
-  useEffect(() => {
-    setRooms([]);
-    setUser(undefined);
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        getUserData(user.uid)
-          .then((user) => {
-            setUser(user as UserData);
-          })
-          .then(() => loadRoom());
-      } else {
-        navigation.navigate('Login');
-      }
-    });
-  }, [isFocused, auth]);
-
-  const loadRoom = async () => {
-    const ref = collection(db, 'rooms');
-    const q = query(ref, where('privacy', '==', 'public'));
-    const querySnapshot = await getDocs(q);
-    const tempRoom: RoomData[] = [];
-
-    querySnapshot.forEach((doc) => {
-      tempRoom.push(doc.data() as RoomData);
-    });
-
-    setRooms(tempRoom);
-  };
+  if (!user || isLoading) {
+    return (
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: isSmallMedium ? undefined : 'center',
+        }}
+      >
+        <Center width="100%" height="100%">
+          <Spinner size="lg" />
+        </Center>
+      </ScrollView>
+    );
+  }
 
   return (
     <ScrollView
@@ -57,7 +37,7 @@ export const ReportsHome = ({ navigation }: NativeStackHeaderProps) => {
         <ScaleFade in={user !== undefined}>
           <Box>
             <Text bold fontSize={30}>
-              Coming soon
+              {t('shared.userWithoutQuiz')}
             </Text>
           </Box>
         </ScaleFade>

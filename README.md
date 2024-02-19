@@ -6,7 +6,7 @@
 
 Tinzzio is a app for creating, playing, and managing quizzes on both web and mobile devices. Experience a user-friendly interface that simplifies quiz creation and management for a enjoyable experience.
 
-This project was created in 2022 and later refactored. It serves as an exploration into hybrid application development, offering compatibility for both web and mobile platforms through the utilization of React Native and Expo.
+This project was created in 2022 and later refactored, but not 100%. It serves as an exploration into hybrid application development, offering compatibility for both web and mobile platforms through the utilization of React Native and Expo. Additionally, it supports both English and Portuguese languages and a dark theme.
 
 ### Demo
 

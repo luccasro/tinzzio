@@ -80,6 +80,7 @@
   },
   "shared": {
     "userWithoutQuiz": "The user does not have a quiz.",
-    "userDontExist": "The user does not exist."
+    "userDontExist": "The user does not exist.",
+    "comingSoon": "Coming soon"
   }
 }
