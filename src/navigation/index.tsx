@@ -41,26 +41,21 @@ import {
   StorageManager,
   ColorMode,
   HamburgerIcon,
-  Button,
   useColorModeValue,
   themeTools,
   View,
-  Center,
-  HStack,
-  Spinner,
   Icon,
 } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { MaterialCommunityIcons, AntDesign, Entypo } from '@expo/vector-icons';
-import { useFonts } from 'expo-font';
+import { AntDesign } from '@expo/vector-icons';
 import { MenuOptions } from 'screens/shared/MenuOptions';
 import NotFoundScreen from 'screens/NotFoundScreen';
 import { CreateRoom } from 'screens/Rooms/CreateRoom';
-import { AdminHome } from '../screens/Admin/AdminHome';
-import { WordRoom } from '../screens/Rooms/WordRoom';
-import { ReportsHome } from '../screens/Reports/ReportsHome';
+import { AdminHome } from 'screens/Admin/AdminHome';
+import { WordRoom } from 'screens/Rooms/WordRoom';
+import { ReportsHome } from 'screens/Reports/ReportsHome';
 import { RootStackParamList } from 'models';
 import { AuthProvider } from 'context/useAuth';
 
