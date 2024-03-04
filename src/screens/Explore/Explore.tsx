@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 import { RoomData } from 'models';
 import { db } from 'services';
-import { CardItem } from '../shared';
+import { CardItem } from '../shared/CardItem';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { getMediaQuery } from '../../styles';

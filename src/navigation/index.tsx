@@ -55,7 +55,7 @@ import { useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { MaterialCommunityIcons, AntDesign, Entypo } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
-import { MenuOptions } from 'screens/shared';
+import { MenuOptions } from 'screens/shared/MenuOptions';
 import NotFoundScreen from 'screens/NotFoundScreen';
 import { CreateRoom } from 'screens/Rooms/CreateRoom';
 import { AdminHome } from '../screens/Admin/AdminHome';

@@ -13,7 +13,7 @@ import React, { useEffect, useState } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 import { LoadRoom } from '../Rooms/LoadRoom';
 import { db } from 'services';
-import { CardItem } from '../shared';
+import { CardItem } from '../shared/CardItem';
 import { collection, getDocs, limit, query, where } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { useTranslation } from 'react-i18next';

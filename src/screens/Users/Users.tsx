@@ -17,7 +17,7 @@ import { UserData } from 'models';
 import { db, getUserData } from 'services';
 import { doc, getDoc } from 'firebase/firestore';
 import { getMediaQuery } from '../../styles';
-import { CardItem } from '../shared';
+import { CardItem } from '../shared/CardItem';
 import { useTranslation } from 'react-i18next';
 
 interface UserName {
