@@ -9,7 +9,7 @@ import {
   Center,
 } from 'native-base';
 import React from 'react';
-import { CardItem } from '../shared';
+import { CardItem } from '../shared/CardItem';
 import { getMediaQuery } from '../../styles';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from 'context/useAuth';
