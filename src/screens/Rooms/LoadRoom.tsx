@@ -17,11 +17,11 @@ export const LoadRoom = () => {
   const { t } = useTranslation();
 
   const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const isSmallMedium = getMediaQuery('isSmallMedium');
 
   const loadRoom = () => {
     navigation.navigate('Room', { roomId: roomId });
   };
-  const isSmallMedium = getMediaQuery('isSmallMedium');
 
   return (
     <>
